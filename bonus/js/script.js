@@ -138,6 +138,7 @@ let filter = document.getElementById('filter');
 //filtro le verdure
 let vegetables = datas.filter((element) => {
     return element.type == "vegetable";
+
 });
 
 //filtro gli animali
@@ -148,6 +149,22 @@ let animals = datas.filter((element) => {
 //filtro gli utenti
 let users = datas.filter((element) => {
     return element.type == "user";
+});
+
+//colori casuali per ogni categoria
+vegetableColor = setColor();
+vegetables.forEach((element) => {
+    element.color = vegetableColor;
+});
+
+userColor = setColor();
+users.forEach((element) => {
+    element.color = userColor;
+});
+
+animalColor = setColor();
+animals.forEach((element) => {
+    element.color = animalColor;
 });
 
 for (let index = 0; index < datas.length; index++) {
@@ -167,8 +184,10 @@ filter.addEventListener('change', function (){
             break;
         case 'vegetable':
             container.innerHTML = '';
+            vegetableColor = setColor();
             //richiamo la funzione per le verdure
             vegetables.forEach((element) => {
+                element.color = vegetableColor;
                 container.innerHTML += makeCard(element);
             });
             break;
@@ -187,11 +206,12 @@ filter.addEventListener('change', function (){
             });
             break;
     }
-})
+});
 
 
 //funzione per creare le card
 function makeCard(element) {
+
 
     //template per le card
     const templateCard = `
@@ -199,3 +219,15 @@ function makeCard(element) {
         `;
     return templateCard;
 }
+
+//funzione per creare un colore HEX random
+function setColor() {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return color = "#" + randomColor;
+}
+
+colors = [
+    {
+        
+    }
+]
