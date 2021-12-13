@@ -51,11 +51,12 @@ header h1 {
     align-items: center;
     justify-content: space-around;
     height: 100px;
+    width: 200px;
     background-color: #F5F5F5;
     margin: 1em 2em 4em 1em;
-    padding: 1em 5em;
     border-radius: 10px;
     box-shadow: 3px 3px 6px #888888;
+    cursor: pointer;
 }
 
 .container i {
