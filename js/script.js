@@ -131,3 +131,24 @@ datas = [
         color: 'blue'
     }
 ];
+
+let container = document.querySelector('.container-ul');
+console.log(container)
+
+for (let index = 0; index < datas.length; index++) {
+
+    //richiamo la funzione
+    container.innerHTML += makeCard(datas[index]);
+
+}
+
+//funzione per creare le card
+function makeCard(element) {
+
+    //template per le card
+    const templateCard = `
+        <li class="d-flex ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i><span>${element.name}</span></li>
+        `;
+    console.log(templateCard);
+    return templateCard;
+}
