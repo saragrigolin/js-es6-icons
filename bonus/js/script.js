@@ -138,7 +138,6 @@ let filter = document.getElementById('filter');
 //filtro le verdure
 let vegetables = datas.filter((element) => {
     return element.type == "vegetable";
-
 });
 
 //filtro gli animali
@@ -221,6 +220,12 @@ function makeCard(element) {
 
 //funzione per creare un colore HEX random
 function setColor() {
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    return color = "#" + randomColor;
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    console.log(color);
+    return color;
+    
 }
