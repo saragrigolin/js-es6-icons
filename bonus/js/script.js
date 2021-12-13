@@ -212,7 +212,6 @@ filter.addEventListener('change', function (){
 //funzione per creare le card
 function makeCard(element) {
 
-
     //template per le card
     const templateCard = `
         <li class="d-flex ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i><span>${element.name}</span></li>
@@ -225,9 +224,3 @@ function setColor() {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     return color = "#" + randomColor;
 }
-
-colors = [
-    {
-        
-    }
-]
