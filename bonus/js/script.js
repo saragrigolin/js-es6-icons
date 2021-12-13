@@ -150,21 +150,21 @@ let users = datas.filter((element) => {
     return element.type == "user";
 });
 
-//colori casuali per ogni categoria
-vegetableColor = setColor();
-vegetables.forEach((element) => {
-    element.color = vegetableColor;
-});
+// //colori casuali per ogni categoria
+// vegetableColor = setColor();
+// vegetables.forEach((element) => {
+//     element.color = vegetableColor;
+// });
 
-userColor = setColor();
-users.forEach((element) => {
-    element.color = userColor;
-});
+// userColor = setColor();
+// users.forEach((element) => {
+//     element.color = userColor;
+// });
 
-animalColor = setColor();
-animals.forEach((element) => {
-    element.color = animalColor;
-});
+// animalColor = setColor();
+// animals.forEach((element) => {
+//     element.color = animalColor;
+// });
 
 for (let index = 0; index < datas.length; index++) {
     //richiamo la funzione
@@ -209,11 +209,12 @@ filter.addEventListener('change', function (){
 
 
 //funzione per creare le card
+//per i colori casuali per ogni categoria cambiare ${setColor()} con ${element.color}
 function makeCard(element) {
 
     //template per le card
     const templateCard = `
-        <li class="d-flex ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i><span>${element.name}</span></li>
+        <li class="d-flex ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${setColor()}"></i><span>${element.name}</span></li>
         `;
     return templateCard;
 }
