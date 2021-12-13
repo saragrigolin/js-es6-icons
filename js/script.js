@@ -133,14 +133,62 @@ datas = [
 ];
 
 let container = document.querySelector('.container-ul');
-console.log(container)
+let filter = document.getElementById('filter');
+
+//filtro le verdure
+let vegetables = datas.filter((element) => {
+    return element.type == "vegetable";
+});
+
+//filtro gli animali
+let animals = datas.filter((element) => {
+    return element.type == "animal";
+});
+
+//filtro gli utenti
+let users = datas.filter((element) => {
+    return element.type == "user";
+});
 
 for (let index = 0; index < datas.length; index++) {
-
     //richiamo la funzione
     container.innerHTML += makeCard(datas[index]);
+};
 
-}
+//al cambio della select
+filter.addEventListener('change', function (){
+    switch (filter.value) {
+        case 'all':
+            container.innerHTML = '';
+            //richiamo la funzione per tutti gli elementi
+            datas.forEach((element) => {
+                container.innerHTML += makeCard(element);
+            });
+            break;
+        case 'vegetable':
+            container.innerHTML = '';
+            //richiamo la funzione per le verdure
+            vegetables.forEach((element) => {
+                container.innerHTML += makeCard(element);
+            });
+            break;
+        case 'animal':
+            container.innerHTML = '';
+            //richiamo la funzione per gli animali
+            animals.forEach((element) => {
+                container.innerHTML += makeCard(element);
+            });
+            break;
+        case 'user':
+            container.innerHTML = '';
+            //richiamo la funzione per gli utenti
+            users.forEach((element) => {
+                container.innerHTML += makeCard(element);
+            });
+            break;
+    }
+})
+
 
 //funzione per creare le card
 function makeCard(element) {
@@ -149,6 +197,5 @@ function makeCard(element) {
     const templateCard = `
         <li class="d-flex ${element.type}"><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i><span>${element.name}</span></li>
         `;
-    console.log(templateCard);
     return templateCard;
 }
